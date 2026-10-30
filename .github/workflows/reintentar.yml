@@ -61,3 +61,9 @@ jobs:
               --body "Oracle tuvo capacidad y se creó lucca-server. Entrá a la consola: Compute → Instances para ver la IP pública."
           fi
           gh workflow disable "Reintentar servidor Oracle"
+
+      - name: Lanzar el siguiente intento
+        if: steps.intento.outputs.resultado == 'capacidad'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run reintentar.yml --ref main
