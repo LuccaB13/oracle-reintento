@@ -2,7 +2,7 @@
 # Intenta crear lucca-server (VM.Standard.A1.Flex, 1 OCPU / 6 GB, gratis).
 # Hace varios intentos por ejecución, separados por 60 segundos.
 set -u
-INTENTOS=4
+INTENTOS=9
 OCPUS=1
 MEMORIA=6
 DISCO=100
