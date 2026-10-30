@@ -34,7 +34,7 @@ for i in $(seq 1 $INTENTOS); do
     --shape VM.Standard.A1.Flex --shape-config "{\"ocpus\":$OCPUS,\"memoryInGBs\":$MEMORIA}" \
     --image-id "$IMG" --subnet-id "$SUBNET" --assign-public-ip true \
     --display-name "$NOMBRE" --boot-volume-size-in-gbs $DISCO \
-    --ssh-authorized-keys-file ~/clave.pub 2>&1)
+    --ssh-authorized-keys-file ~/clave.pub --no-retry 2>&1)
   if echo "$S" | grep -q '"lifecycle-state"'; then
     echo "LISTO, SERVIDOR CREADO"; salida creado; exit 0
   fi
